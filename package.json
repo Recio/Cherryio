@@ -8,7 +8,7 @@
     "build": "tsc",
     "start": "node -r dotenv/config ./prod/index.js"
   },
-  "author": "",
+  "author": "https://github.com/Recio",
   "license": "ISC",
   "dependencies": {
     "discord.js": "^13.1.0",
