@@ -8,7 +8,16 @@
     "build": "tsc",
     "start": "node -r dotenv/config ./prod/index.js"
   },
-  "author": "https://github.com/Recio",
+  "engines": {
+    "node": ">=16.6.0"
+  },
+  "author" : {
+    "name": "João Récio"
+  },
+  "homepage": "https://github.com/Recio/Cherryio",
+  "bugs": {
+    "url": "https://github.com/Recio/Cherryio/issues"
+  },
   "license": "ISC",
   "dependencies": {
     "discord.js": "^13.1.0",
