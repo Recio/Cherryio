@@ -29,7 +29,7 @@ export const CursedCommand : Command = {
             embed.setTitle(":skull: A cursed quote to increase the pain :skull:")
             embed.setColor("#ff0000")
             embed.addField("quote",cursedQuote.text);
-            embed.setFooter("Originally said at: " + new Date(cursedQuote.timestamp).toLocaleDateString());
+            embed.setFooter("Originally said on: " + new Date(cursedQuote.timestamp).toLocaleDateString());
             message.reply(MessagePayload.create(message.author,
                 {
                     embeds: [embed] 

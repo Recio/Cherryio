@@ -28,7 +28,7 @@ export const BlessedCommand : Command = {
             embed.setTitle(":pray: A blessed quote to ease the pain :pray:");
             embed.setColor("#0000ff");
             embed.addField("quote", blessedQuote.text);
-            embed.setFooter("Originally said at: " + new Date(blessedQuote.timestamp).toLocaleDateString());
+            embed.setFooter("Originally said on: " + new Date(blessedQuote.timestamp).toLocaleDateString());
             message.reply(MessagePayload.create(message.author,
                 {
                     embeds: [embed]
