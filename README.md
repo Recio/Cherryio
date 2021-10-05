@@ -9,6 +9,9 @@ Discord bot written in typescript for learning or something like that 📘
 
 ![image](https://user-images.githubusercontent.com/3674948/136115495-90f39403-2410-4355-b7c9-57676fcb4449.png)
 
+## Future
+
+- Add Blursed quotes 🦄
 
 ## Requirements
 - create a copy of .env.example with your secret values (discord app token and mongodb access uri)
