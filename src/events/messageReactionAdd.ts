@@ -20,6 +20,11 @@ export const messageReactionAdd = async (reaction: PartialMessageReaction| Messa
 		reaction.message.react("❌");
 		return;
 	}
+	if(reaction.message?.attachments){
+		reaction.message.react("📎");
+		reaction.message.react("❌");
+		return;
+	}
     
     for(const command of EmojiCommandList)
     {
