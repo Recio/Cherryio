@@ -1,18 +1,21 @@
 import { MessageEmbed, MessagePayload } from "discord.js";
 import commandConfigs from "../configs/commandConfigs";
 import { Command } from "../interfaces/command";
-import { CommandList } from "./_commandList";
+import { CommandList, EmojiCommandList } from "./_commandList";
 
 
 export const ListCommand : Command = {
     name: ["list","help"],
+    emoji: [],
     description: "Lists the available commands",
     run: async (message) => {
         const embed = new MessageEmbed();
-        embed.setTitle("List of commands");
-        embed.setDescription("many commands");
+        embed.setTitle("🍒 Cherry.io 🍒");
+        embed.setDescription("currently available functionalities");
         embed.addField("Commands:",
-        CommandList.map((command) => `\`${commandConfigs.commandPrefix}${command.name.join("|")}\` : ${command.description}`).join("\n"));
+            CommandList.map((command) => `\`${commandConfigs.commandPrefix}${command.name.join(`|${commandConfigs.commandPrefix}`)}\` : ${command.description}`).join("\n"));
+        embed.addField("Reactions:",
+            EmojiCommandList.map((command) => `${command.emoji.join(" | ")} : ${command.description}`).join("\n"));
 
         message.reply(MessagePayload.create(message.author, {
             embeds: [embed]

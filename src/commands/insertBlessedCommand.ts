@@ -1,15 +1,24 @@
-import { MessagePayload } from "discord.js";
 import commandConfigs from "../configs/commandConfigs";
 import { Command } from "../interfaces/command";
+import BlessedQuote from "../db/models/blessedQuoteModel";
 
 export const InsertBlessedCommand : Command = {
-    name : ["wbless","wb"],
-    description: "Records and inserts a blessed quote",
+    name : [],
+    emoji: ["🙏"],
+    description: "Records the reacted blessed quote",
     run : async (message) =>{
-        message.reply(MessagePayload.create(message.author,
-            {
-                content: "what the heaven bro"
-            }));
+        let blessedQuote = await BlessedQuote.findOne({discordId: message.author.id, postId: message.id})
+        if(!blessedQuote)
+        {
+            await BlessedQuote.create({
+                discordId: message.author.id,
+                postId : message.id,
+                text : message.content,
+                timestamp: message.createdTimestamp,
+                postUrl : message.url
+            });
+        }
+        await message.react("🕊");
     },
     commandListDescription: () => {
         return {

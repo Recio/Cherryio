@@ -7,11 +7,15 @@ import { ListCommand } from "./listCommand";
 import { InsertBlessedCommand } from "./insertBlessedCommand";
 import { InsertBlursedCommand } from "./insertBlursedCommand";
 
-export const CommandList: Command[] = [ListCommand,
-    BlursedCommand, 
+export const CommandList: Command[] = [
+    ListCommand,
     BlessedCommand, 
-    CursedCommand, 
+    CursedCommand,
+    //BlursedCommand
+];
+
+export const EmojiCommandList: Command[] = [    
     InsertCursedCommand, 
     InsertBlessedCommand, 
-    InsertBlursedCommand
-];
+    //InsertBlursedCommand
+]

@@ -5,6 +5,7 @@ import { Command } from "../interfaces/command";
 export const BlursedCommand : Command = {
     name : ["blurse"],
     description: "Fetches a blursed quote",
+    emoji: [],
     run : async (message) =>{
         message.reply(MessagePayload.create(message.author,
             {

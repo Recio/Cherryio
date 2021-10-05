@@ -1,15 +1,26 @@
 import { MessagePayload } from "discord.js";
 import commandConfigs from "../configs/commandConfigs";
 import { Command } from "../interfaces/command";
+import CursedQuote from "../db/models/cursedQuoteModel";
+
 
 export const InsertCursedCommand : Command = {
-    name : ["wcurse","wc"],
-    description: "Records and inserts a cursed quote",
+    name : [],
+    emoji: ["💀","☠"],
+    description: "Records the reacted cursed quote",
     run : async (message) =>{
-        message.reply(MessagePayload.create(message.author,
-            {
-                content: "what the fuck bro"
-            }));
+        let cursedQuote = await CursedQuote.findOne({discordId: message.author.id, postId: message.id})
+        if(!cursedQuote)
+        {
+            await CursedQuote.create({
+                discordId: message.author.id,
+                postId : message.id,
+                text : message.content,
+                timestamp: message.createdTimestamp,
+                postUrl : message.url
+            });
+        }
+        await message.react("⚰");
     },
     commandListDescription: () => {
         return {
