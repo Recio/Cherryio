@@ -11,6 +11,7 @@ Discord bot written in typescript for learning or something like that 📘
 
 
 ## Requirements
+- create a copy of .env.example with your secret values (discord app token and mongodb access uri)
 - node >= v16.6.0
 - mongoDB or other data store of your choice (I personally used mongodb v5.0.3)
 
