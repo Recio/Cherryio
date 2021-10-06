@@ -8,6 +8,7 @@ export const messageReactionAdd = async (reaction: PartialMessageReaction| Messa
 		// If the message this reaction belongs to was removed, the fetching might result in an API error which should be handled
 		try {
 			await reaction.fetch();
+			await partialUser.fetch();
 		} catch (error) {
 			console.error('Something went wrong when fetching the message:', error);
 			// Return as `reaction.message.author` may be undefined/null
@@ -18,6 +19,11 @@ export const messageReactionAdd = async (reaction: PartialMessageReaction| Messa
 	if(reaction.message?.author?.bot){
 		reaction.message.react("🤖");
 		reaction.message.react("❌");
+		return;
+	}
+
+	if(reaction.message?.author?.id === partialUser.id){
+		reaction.message.react("🥸")
 		return;
 	}
 
