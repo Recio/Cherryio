@@ -17,6 +17,4 @@ export const messageCreate = async (message: Message) => {
             break;
         }
     }
-
-    console.log(`"${message.author.username}" said "${message.content}"`)
 };
